@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion World</title>
+    <link rel="stylesheet" href="landing2.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>Fashion Folio</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#items" id="items-link" style="display: none;">Fashion Items</a></li>
+                    <li><a href="#" onclick="scrollToLogin()">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>Welcome to Fashion Folio</h1>
+                
+                <a href="#items" class="cta-button" style="display: none;">Shop Now</a>
+            </div>
+            <div class="hero-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <p>
+                    Fashion Folio is an online boutique dedicated to offering trendy, high-quality clothing at affordable prices. 
+                    Our mission is to make fashion accessible and sustainable, with a focus on ethical sourcing and eco-friendly practices. 
+                    We curate collections that blend the latest trends with timeless styles, ensuring there's something for every occasion.
+                    Founded by fashion enthusiasts, we aim to provide a personalized shopping experience, helping you express your unique style while staying conscious of the planet. 
+                    At Fashion Folio, fashion is more than just clothes—it's a statement of individuality.
+                </p>
+                <div class="about-image">
+                    <img src="https://i.pinimg.com/564x/e8/0f/d6/e80fd681ab672662a7998eaa63a77938.jpg" alt="Fashion Image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Fashion Items Section -->
+    <section id="items" class="items-section" style="display: none;">
+        <div class="container">
+            <h2>Fashion Items</h2>
+            <div class="items-grid">
+                <div class="item-card" onclick="showDetails('item1')">
+                    <img src="https://i.pinimg.com/564x/0a/48/9d/0a489df3dc201550154f8b1baa0c0768.jpg" alt="Item 1">
+                    <h3>Elegant Dress</h3>
+                    <p>$1000.00</p>
+                </div>
+                <div class="item-card" onclick="showDetails('item2')">
+                    <img src="https://i.pinimg.com/236x/ee/dd/4a/eedd4a16d740360e52ef7c16b06d7f95.jpg" alt="Item 2">
+                    <h3>Trendy Jacket</h3>
+                    <p>$1500.00</p>
+                </div>
+                <div class="item-card" onclick="showDetails('item3')">
+                    <img src="https://i.pinimg.com/564x/ee/80/a7/ee80a743f55de5167306f3b31eb04352.jpg" alt="Item 3">
+                    <h3>Stylish Handbag</h3>
+                    <p>$2500.00</p>
+                </div>
+                <div class="item-card" onclick="showDetails('item4')">
+                    <img src="https://i.pinimg.com/236x/13/14/6c/13146c62bf5a9b75a9c2fe21cc90635c.jpg" alt="Item 4">
+                    <h3>Beauty Products</h3>
+                    <p>$4500.00</p>
+                </div>
+                <div class="item-card" onclick="showDetails('item5')">
+                    <img src="https://i.pinimg.com/564x/9b/a9/9d/9ba99db2a4e3f2c0bb55040a52964662.jpg" alt="Item 5">
+                    <h3>Trendy Watch</h3>
+                    <p>$3500.00</p>
+                </div>
+            </div>
+            <div id="item-details" class="item-details" style="display: none;">
+                <h3 id="item-title"></h3>
+                <p id="item-price"></p>
+                <p id="item-size"></p>
+                <p id="item-delivery"></p>
+                <p id="item-payment"></p>
+                <button onclick="hideDetails()">Close</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Section -->
+    <section id="login" class="login-section">
+        <div class="container">
+            <h2>Login to Your Account</h2>
+            <div class="login-container">
+                <form onsubmit="handleLogin(event)" class="login-form">
+                    <div class="form-group">
+                        <label for="username">Enter Username:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Enter Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="login-button">Login</button>
+                    </div>
+    
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Fashion World. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('items').style.display = 'block';
+            document.getElementById('items-link').style.display = 'inline';
+            document.querySelector('.cta-button').style.display = 'inline';
+        }
+
+        function showDetails(item) {
+            const details = {
+                item1: {
+                    title: 'Elegant Dress',
+                    price: '$1000.00',
+                    size: 'Available Sizes: S,M,XL,XXL',
+                    delivery: 'Delivery: Free in 3-5 business days',
+                    payment: 'Payment: Credit Card, PayPal'
+                },
+                item2: {
+                    title: 'Trendy Jacket',
+                    price: '$1500.00',
+                    size: 'Available Sizes: M, L, XL',
+                    delivery: 'Delivery: Free in 2-4 business days',
+                    payment: 'Payment: Credit Card, PayPal, COD'
+                },
+                item3: {
+                    title: 'Stylish Handbag',
+                    price: '$2500.00',
+                    size: 'Available Sizes: One Size',
+                    delivery: 'Delivery: Free in 3-5 business days',
+                    payment: 'Payment: Credit Card, PayPal'
+                },
+                item4: {
+                    title: 'Beauty Products',
+                    price: '$4500.00',
+                    size: 'Available Sizes: One Size',
+                    delivery: 'Delivery: Free in 3-5 business days',
+                    payment: 'Payment: Credit Card, PayPal'
+                },
+                item5: {
+                    title: 'Trendy Watch',
+                    price: '$3500.00',
+                    size: 'Available Sizes: One Size',
+                    delivery: 'Delivery: Free in 3-5 business days',
+                    payment: 'Payment: Credit Card, PayPal'
+                }
+            };
+
+            const selectedItem = details[item];
+            if (selectedItem) {
+                document.getElementById('item-title').innerText = selectedItem.title;
+                document.getElementById('item-price').innerText = selectedItem.price;
+                document.getElementById('item-size').innerText = selectedItem.size;
+                document.getElementById('item-delivery').innerText = selectedItem.delivery;
+                document.getElementById('item-payment').innerText = selectedItem.payment;
+                document.getElementById('item-details').style.display = 'block';
+            }
+        }
+
+        function hideDetails() {
+            document.getElementById('item-details').style.display = 'none';
+        }
+
+        function scrollToLogin() {
+            const loginSection = document.getElementById('login');
+            loginSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
